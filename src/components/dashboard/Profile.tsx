@@ -75,7 +75,7 @@ export default function Profile({ onProfileUpdate }: ProfileProps) {
       };
 
       setUser(updated);
-      storage.setItem("cab_user", updated);
+      storage.setItem("cab_user", JSON.stringify(updated));
       setIsEditing(false);
       onProfileUpdate(); // notify parent (Header/Sidebar) to reload
       setToast({ msg: "Profile information updated successfully!", type: "success" });
