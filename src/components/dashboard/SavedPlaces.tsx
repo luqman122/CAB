@@ -38,7 +38,7 @@ export default function SavedPlaces({ onBookRideWithDestination }: SavedPlacesPr
     e.stopPropagation();
     const updated = places.filter((p) => p.id !== id);
     setPlaces(updated);
-    storage.setItem("cab_saved_places", updated);
+    storage.setItem("cab_saved_places", JSON.stringify(updated));
     setToast({ msg: "Saved place removed successfully", type: "success" });
   };
 
@@ -59,7 +59,7 @@ export default function SavedPlaces({ onBookRideWithDestination }: SavedPlacesPr
 
     const updated = [...places, newPlace];
     setPlaces(updated);
-    storage.setItem("cab_saved_places", updated);
+    storage.setItem("cab_saved_places", JSON.stringify(updated));
 
     setNewName("");
     setNewAddress("");

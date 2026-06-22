@@ -130,13 +130,13 @@ export default function RideHistory({ rides, showToast }: RideHistoryProps) {
                     </span>
 
                     {/* Star ratings rendering */}
-                    {isCompleted && ride.rating && (
+                    {isCompleted && ride.rating !== null && (
                       <div className="flex gap-0.5">
                         {[1, 2, 3, 4, 5].map((s) => (
                           <i
                             key={s}
                             className={`fas fa-star text-[10px] ${
-                              s <= ride.rating ? "text-gold-light" : "text-slate-800"
+                              s <= ride.rating! ? "text-gold-light" : "text-slate-800"
                             }`}
                           ></i>
                         ))}
